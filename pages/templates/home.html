@@ -1,0 +1,209 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <head>
+        <title>Survey Form</title>
+
+        <style>
+            /* Apply global styles */
+            body {
+                font-family: Arial, sans-serif;
+                font-size: larger;
+
+            }
+
+            #header {
+                text-align: center;
+                padding-top: 3%;
+                padding-bottom: 1%;
+
+            }
+
+            .question {
+                font-weight: bold;
+                font-size: large;
+            }
+
+            input[type="radio"] {
+                margin-right: 5px;
+                padding-right: 50%;
+            }
+
+            form label {
+                padding-right: 5%;
+            }
+
+            /* Apply specific styles to form elements */
+            form {
+              max-width: 800px;
+              margin: 0 auto;
+              background-color: #f5f5f5;
+              border-radius: 15px;
+              border: 5px double #000000;
+              padding: 30px;
+            }
+
+
+
+            form input[type="submit"] {
+                background-color: #4CAF50;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button[type="submit"] {
+                display: block;
+                margin: 0 auto;
+                width: 65%;
+                padding: 1%;
+                background-color: #3e8e41;
+                color: white;
+            }
+
+        </style>
+    </head>
+    <body>
+
+    <h1 id="header">Survey Form</h1>
+    <form action="{% url 'homePost' %}" method="post">
+        {% csrf_token %}
+        <label for="genre" class="question">What is your preferred genre?</label><br><br>
+        <input type="radio" id="movie" name="genre" value="Movie">
+        <label for="movie">Movie</label><br>
+        <input type="radio" id="r&b" name="genre" value="R&B">
+        <label for="r&b">R&amp;B</label><br>
+        <input type="radio" id="world" name="genre" value="World">
+        <label for="world">World</label><br>
+        <input type="radio" id="a_capella" name="genre" value="A Capella">
+        <label for="a_capella">A Capella</label><br>
+        <input type="radio" id="alternative" name="genre" value="Alternative">
+        <label for="alternative">Alternative</label><br>
+        <input type="radio" id="country" name="genre" value="Country">
+        <label for="country">Country</label><br>
+        <input type="radio" id="dance" name="genre" value="Dance">
+        <label for="dance">Dance</label><br>
+        <input type="radio" id="electronic" name="genre" value="Electronic">
+        <label for="electronic">Electronic</label><br>
+        <input type="radio" id="anime" name="genre" value="Anime">
+        <label for="anime">Anime</label><br>
+        <input type="radio" id="folk" name="genre" value="Folk">
+        <label for="folk">Folk</label><br>
+        <input type="radio" id="blues" name="genre" value="Blues">
+        <label for="blues">Blues</label><br>
+        <input type="radio" id="r&b" name="genre" value="R&amp;B">
+        <label for="r&b">R&amp;B</label><br>
+        <input type="radio" id="opera" name="genre" value="Opera">
+        <label for="opera">Opera</label><br>
+        <input type="radio" id="hip_hop" name="genre" value="Hip-Hop">
+        <label for="hip_hop">Hip-Hop</label><br>
+        <input type="radio" id="children_music" name="genre" value="Children's Music">
+        <label for="children_music">Children's Music</label><br>
+        <input type="radio" id="rap" name="genre" value="Rap">
+        <label for="rap">Rap</label><br>
+        <input type="radio" id="indie" name="genre" value="Indie">
+        <label for="indie">Indie</label><br>
+        <input type="radio" id="classical" name="genre" value="Classical">
+        <label for="classical">Classical</label><br>
+        <input type="radio" id="pop" name="genre" value="Pop">
+        <label for="pop">Pop</label><br>
+        <input type="radio" id="reggae" name="genre" value="Reggae">
+        <label for="reggae">Reggae</label><br>
+        <input type="radio" id="reggaeton" name="genre" value="Reggaeton">
+        <label for="reggaeton">Reggaeton</label><br>
+        <input type="radio" id="jazz" name="genre" value="Jazz">
+        <label for="jazz">Jazz</label><br>
+        <input type="radio" id="rock" name="genre" value="Rock">
+        <label for="rock">Rock</label><br>
+        <input type="radio" id="ska" name="genre" value="Ska">
+        <label for="ska">Ska</label><br>
+        <input type="radio" id="comedy" name="genre" value="Comedy">
+        <label for="comedy">Comedy</label><br>
+        <input type="radio" id="soul" name="genre" value="Soul">
+        <label for="soul">Soul</label><br>
+        <input type="radio" id="soundtrack" name="genre" value="Soundtrack">
+        <label for="soundtrack">Soundtrack</label><br>
+
+        <br>
+
+        <label for="danceability" class="question">On a scale of 1-5, how important is danceability to
+            you?</label><br><br>
+        <input type="radio" id="danceability1" name="danceability" value="1" required>
+        <label for="danceability1">1</label>
+        <input type="radio" id="danceability2" name="danceability" value="2">
+        <label for="danceability2">2</label>
+        <input type="radio" id="danceability3" name="danceability" value="3">
+        <label for="danceability3">3</label>
+        <input type="radio" id="danceability4" name="danceability" value="4">
+        <label for="danceability4">4</label>
+        <input type="radio" id="danceability5" name="danceability" value="5">
+        <label for="danceability5">5</label><br>
+
+        <br>
+
+        <label for="energy" class="question">On a scale of 1-5, how important is energy to you?</label><br><br>
+        <input type="radio" id="energy1" name="energy" value="1" required>
+        <label for="energy1">1</label>
+        <input type="radio" id="energy2" name="energy" value="2">
+        <label for="energy2">2</label>
+        <input type="radio" id="energy3" name="energy" value="3">
+        <label for="energy3">3</label>
+        <input type="radio" id="energy4" name="energy" value="4">
+        <label for="energy4">4</label>
+        <input type="radio" id="energy5" name="energy" value="5">
+        <label for="energy5">5</label><br>
+
+        <br>
+
+        <label for="acousticness" class="question">On a scale of 1-5, how important is acousticness to
+            you?</label><br><br>
+        <input type="radio" id="acousticness1" name="acousticness" value="1" required>
+        <label for="acousticness1">1</label>
+        <input type="radio" id="acousticness2" name="acousticness" value="2">
+        <label for="acousticness2">2</label>
+        <input type="radio" id="acousticness3" name="acousticness" value="3">
+        <label for="acousticness3">3</label>
+        <input type="radio" id="acousticness4" name="acousticness" value="4">
+        <label for="acousticness4">4</label>
+        <input type="radio" id="acousticness5" name="acousticness" value="5">
+        <label for="acousticness5">5</label><br>
+
+        <br>
+
+        <label for="instrumentalness" class="question">On a scale of 1-5, how important is instrumentalness to
+            you?</label><br><br>
+        <input type="radio" id="instrumentalness_1" name="instrumentalness" value="1" required>
+        <label for="instrumentalness_1">1</label>
+        <input type="radio" id="instrumentalness_2" name="instrumentalness" value="2" required>
+        <label for="instrumentalness_2">2</label>
+        <input type="radio" id="instrumentalness_3" name="instrumentalness" value="3" required>
+        <label for="instrumentalness_3">3</label>
+        <input type="radio" id="instrumentalness_4" name="instrumentalness" value="4" required>
+        <label for="instrumentalness_4">4</label>
+        <input type="radio" id="instrumentalness_5" name="instrumentalness" value="5" required>
+        <label for="instrumentalness_5">5</label><br>
+
+        <br>
+
+        <label for="valence" class="question">On a scale of 1-5, how important is valence to you?</label><br><br>
+        <input type="radio" id="valence_1" name="valence" value="1" required>
+        <label for="valence_1">1</label>
+        <input type="radio" id="valence_2" name="valence" value="2" required>
+        <label for="valence_2">2</label>
+        <input type="radio" id="valence_3" name="valence" value="3" required>
+        <label for="valence_3">3</label>
+        <input type="radio" id="valence_4" name="valence" value="4" required>
+        <label for="valence_4">4</label>
+        <input type="radio" id="valence_5" name="valence" value="5" required>
+        <label for="valence_5">5</label><br>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    </body>
+{% endblock content %}

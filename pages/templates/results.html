@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Results</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            table {
+                width: 100%;
+                height: 75vh;
+                border-collapse: collapse;
+                border: 1px solid #ddd;
+            }
+
+            th,
+            td {
+                text-align: left;
+                padding: 8px;
+            }
+
+            th {
+                background-color: #4CAF50;
+                color: white;
+                font-size: larger;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            tr:hover {
+                background-color: #ddd;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: larger;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>Your Top 10 Songs</h1>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Song Title</th>
+            <th>Artist</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for index, row in matches_genre.iterrows %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="#" onclick="searchGoogle('{{ row.track_name }}')">{{ row.track_name }}</a></td>
+                <td><a href="#" onclick="searchGoogle('{{ row.artist_name }}')">{{ row.artist_name }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        function searchGoogle(query) {
+            var url = "https://genius.com/search?q=" + encodeURIComponent(query);
+            window.open(url, '_blank');
+        }
+    </script>
+    </body>
+    </html>
+
+{% endblock content %}
